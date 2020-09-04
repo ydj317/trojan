@@ -14,3 +14,9 @@
  /home/temp/wordpress/index.php 
   /home/temp/wordpress/wp-setting.php
   这两个文件 开头加上一行代码 $_SERVER['HTTPS'] = 'on';
+
+* 配置文件在 /home/temp/trojan/config.json 还有 /home/temp/nginx/nginx.conf
+
+* 重启 
+docker restart nginx-1
+docker restart trojan-1
