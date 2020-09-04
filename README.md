@@ -1,4 +1,4 @@
-# trojan
+# tencent cloud 轻量应用服务器 Lighthouse docker trojan 伪装
 
 
 1. 执行 bbrplus.sh  选择 2  安装 bbrplus 然后重启
