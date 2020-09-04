@@ -6,17 +6,12 @@
 3. 执行 dockersetup.sh 安装 docker 和 docker-compose
 4. 把证书文件.crt 和 .key放到 这个脚本目录下，  文件名无所谓
 5. 修改 nginx.conf 文件找到 <我的域名> 和 <我的服务器ip> 改为我自己的
+6. 修改 config.json 里找到 password 这里设置的就是trojan密码
 6. 执行init.sh 结束
 
 
-* config.json里有 默认的 trojan密码，可以先更改
-* wordpress安装后因为是https下打开 需要修改两个文件
- /home/temp/wordpress/index.php 
-  /home/temp/wordpress/wp-setting.php
-  这两个文件 开头加上一行代码 $_SERVER['HTTPS'] = 'on';
-
-* 配置文件在 /home/temp/trojan/config.json 还有 /home/temp/nginx/nginx.conf
-
-* 重启 
-docker restart nginx-1
-docker restart trojan-1
+* 如需自己修改配置文件的话 路径如下
+* /home/temp/trojan/config.json 还有 /home/temp/nginx/nginx.conf
+* 重启 命令
+* docker restart nginx-1
+* docker restart trojan-1

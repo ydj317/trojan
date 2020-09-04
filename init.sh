@@ -17,6 +17,7 @@ echo "==========================================================================
 echo "init"
 echo "================================================================================"
 
+
 mkdir -p /home/temp/nginx
 mkdir -p /home/temp/trojan/ssl
 
@@ -36,6 +37,10 @@ docker run --name nginx-1 --restart=always --network network-1  -v /home/temp/ng
 docker run --name wordpress-1 --restart=always --network network-1 -v /home/temp/wordpress:/var/www/html -d wordpress:5.5.0-php7.2-apache
 docker run --name mariadb-1 --restart=always --network network-1 -v /home/temp/mariadb/config:/etc/mysql/conf.d -v /home/temp/mariadb/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=a123123 -d mariadb:10.5.5-focal
 docker run --name phpmyadmin-1 --restart=always --network network-1 -e PMA_HOST=mariadb-1 -p 8080:80 -d phpmyadmin
+
+sed -i '1 a $_SERVER["HTTPS"] = "on";' /home/temp/wordpress/index.php
+sed -i '1 a $_SERVER["HTTPS"] = "on";' /home/temp/wordpress/wp-settings.php
+
 
 echo "set ok"
 
